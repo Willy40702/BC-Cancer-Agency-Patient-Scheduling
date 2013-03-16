@@ -35,5 +35,22 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+	@RequestMapping(value = "about", method = RequestMethod.GET)
+	public String about(Locale locale, Model model) {
+		logger.info("Welcome about! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		int random = (int) (Math.random()*100.0);
+		
+		model.addAttribute("random",random);
+		
+		return "about";
+	}
 }
+
