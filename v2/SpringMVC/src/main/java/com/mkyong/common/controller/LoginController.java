@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
  
 @Controller
 public class LoginController {
+	
+	private String name;
  
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String home(ModelMap model) {
@@ -29,10 +31,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
+	
 	public String printWelcome(ModelMap model) {
  
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String name = user.getUsername();
+		name = user.getUsername();
 	
 		model.addAttribute("username", name);
 		model.addAttribute("message", "Spring Security login + database example");
@@ -55,21 +58,8 @@ public class LoginController {
        try {
            con = DriverManager.getConnection(url, username, password);
            st = con.createStatement();
-           System.out.println("connection established");
 
-       } catch (SQLException ex) {
-       	System.out.println("Message: " + ex.getMessage());
-       	System.exit(-1);
-       }
-       
-   	String     appointment_type;
-   	Statement  stmt;
-   	   
-   	try
-   	{
-   	  stmt = con.createStatement();
-
-   	  rs = stmt.executeQuery("select a.appointment_type, a.provider_name, a.building, a.room, a.start_date_time, a.end_date_time from appointments a, users u where u.username = '" + name + "' and u.user_id = a.user_id and a.start_date_time > now()");
+           rs = st.executeQuery("select a.appointment_type, a.provider_name, a.building, a.room, a.start_date_time, a.end_date_time from appointments a, users u where u.username = '" + name + "' and u.user_id = a.user_id and a.start_date_time > now()");
 
    	  // get info on ResultSet
    	  ResultSetMetaData rsmd = rs.getMetaData();
@@ -104,6 +94,22 @@ public class LoginController {
  
 	}
  
+	@RequestMapping(value="/notifysettings", method = RequestMethod.GET)
+	public String notification(ModelMap model) {
+ 
+		if (name == null) {
+			return "login";
+		}
+		
+		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		name = user.getUsername();
+		
+		model.addAttribute("username", name);
+		
+		return "notifysettings";
+ 
+	}
+	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login(ModelMap model) {
  
@@ -121,6 +127,8 @@ public class LoginController {
 	
 	@RequestMapping(value="/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model) {
+		
+		name = null;
  
 		return "login";
  
