@@ -2,12 +2,14 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-   <title>Hello</title>
+   <title>Patient Scheduler</title>
 </head>
    <script src="resources/dhtmlxscheduler.js" type="text/javascript" charset="utf-8"></script>
    <link rel="stylesheet" href="resources/dhtmlxscheduler.css" type="text/css" media="screen" title="no title" charset="utf-8">
+   
 	
 	<script src="resources/ext/dhtmlxscheduler_readonly.js" type="text/javascript" charset="utf-8"></script>
+	<link rel="stylesheet" href="resources/conref.css" type="text/css" media="screen" title="no title" charset="utf-8">
    
 <style type="text/css" media="screen">
    html, body{
@@ -37,9 +39,8 @@
 </script>
 </head>
 <body onload="init()")>
-	<h3>Message : ${message}</h3>	
-	<h3>Username : ${username}</h3>	
-	<h2>Foo : ${foo}</h2>		
+	<img id="logo" src="resources/BCCA_Logo.gif" />
+	<h3>Username : ${username}</h3>		
 	
 	 <div id="scheduler_here" class="dhx_cal_container" style='width:70%; height:70%; left:15%' >
     	<div class="dhx_cal_navline">

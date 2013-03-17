@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+<link rel="stylesheet" href="resources/conref.css" type="text/css" media="screen" title="no title" charset="utf-8">
 <title>Login Page</title>
 <style>
 .errorblock {
@@ -12,7 +13,11 @@
 }
 </style>
 </head>
+
 <body onload='document.f.j_username.focus();'>
+	
+	<img id="logo" src="resources/BCCA_Logo.gif" />
+	
 	<h3>Login with Username and Password (Authentication with Database)</h3>
 
 	<c:if test="${not empty error}">
@@ -38,7 +43,7 @@
 			</tr>
 			<tr>
 				<td colspan='2'><input name="submit" type="submit"
-					value="submit" />
+					value="Submit" />
 				</td>
 			</tr>
 			<tr>
