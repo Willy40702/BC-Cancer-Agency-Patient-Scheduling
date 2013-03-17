@@ -15,6 +15,15 @@
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+<servlet>
+    <servlet-name>emailServlet</servlet-name>
+    <servlet-class>com.mkyong.common.controller.EmailServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>emailServlet</servlet-name>
+    <url-pattern>/setemail</url-pattern>
+</servlet-mapping>
 
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

@@ -16,20 +16,15 @@
 	<h3>Username : ${username}</h3>	
 	<h3>This is where you change your notification settings.</h3>
 	
-	<form action="notify.jsp">
+	<form action="setnotification" method="post">
 	I want to receive notifications by email: <input type="checkbox" name="notification"> <br>
 	<input type="submit" value="Submit">
 	</form>
 	
-	<form action="setemail.jsp">
+	<form action="setemail" method="post">
 	Update email: <input type="text" name="email"> <br>
 	<input type="submit" value="Submit">
 	</form>
-	
-	<%
-   String strMasjidLocation = "Selimiyie Masjid Methuen";
-   session.setAttribute("MasjidLocation", strMasjidLocation);
-   %>
 	
 	<a href="<c:url value="/j_spring_security_logout" />" > Logout</a>
 	
