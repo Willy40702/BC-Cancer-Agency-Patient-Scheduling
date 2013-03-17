@@ -31,7 +31,6 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
-	
 	public String printWelcome(ModelMap model) {
  
 		User user = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
