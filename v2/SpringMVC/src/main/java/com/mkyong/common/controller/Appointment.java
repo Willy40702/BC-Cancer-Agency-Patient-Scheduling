@@ -1,6 +1,6 @@
 package com.mkyong.common.controller;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 /*
  * Represents appointment tuple in database as an object. Used to move around appointment information.
@@ -16,9 +16,9 @@ public class Appointment {
 
 	public int room;
 
-	public Date start_date_time;
+	public Timestamp start_date_time;
 
-	public Date end_date_time;
+	public Timestamp end_date_time;
 	
 	public int appoint_id;
 	
@@ -26,7 +26,7 @@ public class Appointment {
 		// initialize all values to 0 or whatever
 	}
 	
-	public Appointment(String type, String name, String build, int room, Date start, Date end, int id) {
+	public Appointment(String type, String name, String build, int room, Timestamp start, Timestamp end, int id) {
 		this.appointment_type = type;
 		this.provider_name = name;
 		this.building = build;

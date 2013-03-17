@@ -87,8 +87,8 @@ public class LoginController {
         		app.provider_name = rs.getString("provider_name");
         		app.building = rs.getString("building");
         		app.room = rs.getInt("room");
-        		app.start_date_time = rs.getDate("start_date_time");
-        		app.end_date_time = rs.getDate("end_date_time");
+        		app.start_date_time = rs.getTimestamp("start_date_time");
+        		app.end_date_time = rs.getTimestamp("end_date_time");
         		app.appoint_id = rs.getInt("id");
         		a_list.add(app);
         	}
@@ -114,13 +114,14 @@ public class LoginController {
 		while(it.hasNext()){
 			
 			Appointment ap = it.next();
-			System.out.println(ap.start_date_time.toString());
+			System.out.println("the time stamp " + ap.start_date_time);
 			Element event = root.addElement( "event" )
 				.addAttribute( "id", Integer.toString(ap.appoint_id) )
 				.addAttribute( "start_date", ap.start_date_time.toString() )
 				.addAttribute( "end_date", ap.end_date_time.toString() )
 				.addAttribute( "text", ap.provider_name )
-				.addAttribute( "details", ap.building );					
+				.addAttribute( "details", ap.building );
+			System.out.println("time stamp in string " + ap.start_date_time.toString());
 		}
 
 		try{
@@ -128,7 +129,7 @@ public class LoginController {
 			
 			// lets write to a file
 			XMLWriter writer = new XMLWriter(
-					new FileWriter( "C:/Users/Punit/git/BC-Cancer-Agency-Patient-Scheduling"
+					new FileWriter( "C:/Users/Jeong-Woo/git/BC-Cancer-Agency-Patient-Scheduling"
 							+"/v2/SpringMVC/src/main/java/com/mkyong/common/controller"
 							+"/events.xml" )
 					);
