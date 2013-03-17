@@ -20,17 +20,20 @@ public class Appointment {
 
 	public Date end_date_time;
 	
+	public int appoint_id;
+	
 	public Appointment() {
 		// initialize all values to 0 or whatever
 	}
 	
-	public Appointment(String type, String name, String build, int room, Date start, Date end) {
+	public Appointment(String type, String name, String build, int room, Date start, Date end, int id) {
 		this.appointment_type = type;
 		this.provider_name = name;
 		this.building = build;
 		this.room = room;
 		this.start_date_time = start;
 		this.end_date_time = end;
+		this.appoint_id = id;
 	}
 
 }

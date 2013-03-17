@@ -31,7 +31,7 @@
 		scheduler.config.dblclick_create = false;
 		
 		scheduler.load("resources/data/events.xml",function(){
-			scheduler.showLightbox("1261150511");
+			
 		});
 	}	
 </script>
